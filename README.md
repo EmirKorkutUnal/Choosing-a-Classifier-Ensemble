@@ -332,7 +332,7 @@ ETC: 0.970200  in 0.54 seconds
 GBC: 0.989700  in 22.41 seconds
 RFC: 0.987900  in 1.31 seconds
 </pre>
-Gradient Boosting Classifier has the best score, but also took the longest time to run. Bagging Classifier is a close second with much better running time.<br><br>
+<b>Gradient Boosting Classifier has the best score</b>, but also took the longest time to run. <b>Bagging Classifier</b> is a close second with <b>much better running time</b>.<br><br>
 Let's use the models for predictions:
 <pre>
 y_pred = []
