@@ -16,7 +16,7 @@ In this article, we'll use Python to compare
   <li>Gradient Boosting</li>
   <li>Random Forest</li>
  </ul>
-classifiers. All classifiers will be used with their base settings.<br><br>
+classifiers. All classifiers will be used with their default parameters.<br><br>
 Also, we'll employ <a href=https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.KFold.html>KFold</a> to get average model scores, use the classifiers to make predictions and then create <a href=https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html>confusion matrices</a> to visualize prediction results.<br><br>
 Let's start.
 <h2>Analysis</h2>
@@ -401,10 +401,11 @@ As you can see, confusion matrices allow us to easily notice where the models we
 <b>Gradient Boosting Classifier has the best results</b>, maximum partial error rate is 5%.<br>
 <b>Random Forest Classifier accomplished good results</b>, again having difficulties labeling quasars.
 <h3>Futrher Interpretation for this Analysis</h3>
-If your only choice of classifying these objects woul be one of these 5 models, you would have to go with the Gradient Boosting Classifier despite the 5% partial error rate. In real world, this might not be the case, so you might go one of the following directions:
+If your only choice of classifying these objects would be one of these 5 models, you would have to go with the Gradient Boosting Classifier despite the 5% partial error rate - which is not that high and also consider that the part where the error is made is relatively small. In real world, this might not be the case, so you might go one of the following directions:
 <ul>
+  <li><b>Play around with default parameters of each ensemble model</b> until you get a better result. Keep in mind that the both <b>AdaBoost and Bagging Classifiers have a base_estimator parameter</b> where you can change the standard decision tree estimator into something else, like Logistic Regression.</li> 
   <li>Look at alternative models, such as Artifical Neural Network Classifier, and measure their accuracies on the dataset.</li>
   <li>All 5 models had some level of problem when it came to labeling quasars; this indicated that the dataset itself may not contain sufficient information to classify all objects correctly. You may want to search for other related variables to increase model accuracy.</li>
 </ul>
 <h2>Conclusion</h2>
-
+Although AdaBoost Classifier didn't perform as well in this example, <b>you can use all of these ensembles for your classification analyzes. They are powerful methods and can increase the accuracy of any existing simple method.<b> 
