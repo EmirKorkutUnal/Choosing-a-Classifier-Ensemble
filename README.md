@@ -344,11 +344,36 @@ for name, model in models:
 </pre>
 We have a list called y_pred, and it will save all the prediction information for each model. Notice that the name of the model is also recorded into the list because we will need it during the cretion of confusion matrices.<br><br>
 The data is fitted into all models, prediction results are individually saved into the 'PredictionResults' and then appended to y_pred for future use. <b>Because this is a loop, anything you want to use later must be recorded into a variable that is out of the loop!</b><br><br>
-The print command here indicates that the code succesfully ran. 
+The print command is here to show that the code ran succesfully. 
 <pre>
 ABC fitted and used for predictions.
 BC  fitted and used for predictions.
 ETC fitted and used for predictions.
 GBC fitted and used for predictions.
 RFC fitted and used for predictions.
+</pre>
+<h3>Visualization</h3>
+So, we got our predictions. But how do we see and compare them?<br><br>
+Here we'll use confusion matrices. Below is a custom function for creating them; this was taken from <a href =https://scikit-learn.org/stable/auto_examples/model_selection/plot_confusion_matrix.html#sphx-glr-auto-examples-model-selection-plot-confusion-matrix-py>an example on Scikit-Learn website</a> and several changes were made to give it a little bit of a custom look.
+<pre>
+def plot_confusion_matrix(cm, classes, normalize=False, title='Confusion matrix', cmap=plt.cm.Greens):
+
+    if normalize:
+        cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+
+    plt.imshow(cm, interpolation='nearest', cmap=cmap)
+    plt.title(title)
+    plt.colorbar()
+    tick_marks = np.arange(len(classes))
+    plt.xticks(tick_marks, classes)
+    plt.yticks(tick_marks, classes)
+
+    fmt = '.2f' if normalize else 'd'
+    thresh = cm.max() / 2.
+    for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
+        plt.text(j, i, format(cm[i, j], fmt), horizontalalignment="center", color="white" if cm[i, j] > thresh else "black")
+
+    plt.tight_layout()
+    plt.ylabel('True label')
+    plt.xlabel('Predicted label')
 </pre>
