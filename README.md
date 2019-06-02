@@ -180,7 +180,7 @@ df.groupby(['class']).mean()
 </pre>
 <table>
   <thead>
-    <tr style="text-align: right;" bgcolor="lightblue">
+    <tr  bgcolor="lightblue" style="text-align: right;">
       <th></th>
       <th>objid</th>
       <th>ra</th>
