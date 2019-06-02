@@ -178,9 +178,9 @@ Now that the data is properly loaded, let's take a deper look into each object c
 <pre>
 df.groupby(['class']).mean()
 </pre>
-<table border="1" class="dataframe">
+<table>
   <thead>
-    <tr style="text-align: right;">
+    <tr style="text-align: right; bgcolor="lightblue"">
       <th></th>
       <th>objid</th>
       <th>ra</th>
