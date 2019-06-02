@@ -357,23 +357,34 @@ So, we got our predictions. But how do we see and compare them?<br><br>
 Here we'll use confusion matrices. Below is a custom function for creating them; this was taken from <a href =https://scikit-learn.org/stable/auto_examples/model_selection/plot_confusion_matrix.html#sphx-glr-auto-examples-model-selection-plot-confusion-matrix-py>an example on Scikit-Learn website</a> and several changes were made to give it a little bit of a custom look.
 <pre>
 def plot_confusion_matrix(cm, classes, normalize=False, title='Confusion matrix', cmap=plt.cm.Greens):
-
     if normalize:
         cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
-
     plt.imshow(cm, interpolation='nearest', cmap=cmap)
     plt.title(title)
     plt.colorbar()
     tick_marks = np.arange(len(classes))
     plt.xticks(tick_marks, classes)
     plt.yticks(tick_marks, classes)
-
     fmt = '.2f' if normalize else 'd'
     thresh = cm.max() / 2.
     for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
         plt.text(j, i, format(cm[i, j], fmt), horizontalalignment="center", color="white" if cm[i, j] > thresh else "black")
-
     plt.tight_layout()
     plt.ylabel('True label')
     plt.xlabel('Predicted label')
 </pre>
+This code can be used for both standard and normalized confusion matrices. It has a default title, and the color map can be specified. Details of this code won't be discussed here since it's out of the scope of this article.<br><br>
+In the final step, we'll run two confusion matrices for each prediction set; one will be standard, one will be normalized. We'll use another for loop to do this.
+<pre>
+for name, pred in y_pred:
+    conmat = confusion_matrix(y_test, pred)
+    y_names=np.unique(y_test.iloc[:,0:1].values)
+    f = plt.figure(figsize=(12, 5))
+    f.add_subplot(1,2,1)
+    plot_confusion_matrix(conmat, classes=y_names, title='%s Standard Confusion Matrix' % name)
+    f.add_subplot(1,2,2)
+    plot_confusion_matrix(conmat, classes=y_names, normalize=True, title='%s Normalized Confusion Matrix' % name)
+    plt.subplots_adjust(wspace=0.2)
+    plt.show()
+<pre>
+All our predictions in our y_pred list go through the confusion_matrix() function. Names of the target variables are taken from the y_test dataset. For each confusion matrix pair, the one at the left will be the standard plot and the one at the left will be the normalized plot. The plots will have a space between them that is 20% of the whole axis width.
