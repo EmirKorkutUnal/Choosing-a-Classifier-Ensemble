@@ -174,3 +174,113 @@ df.head()
     </tr>
   </tbody>
 </table>
+Now that the data is properly loaded, let's take a deper look into each object class.
+<pre>
+df.groupby(['class']).mean()
+</pre>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>objid</th>
+      <th>ra</th>
+      <th>dec</th>
+      <th>u</th>
+      <th>g</th>
+      <th>r</th>
+      <th>i</th>
+      <th>z</th>
+      <th>run</th>
+      <th>rerun</th>
+      <th>camcol</th>
+      <th>field</th>
+      <th>specobjid</th>
+      <th>redshift</th>
+      <th>plate</th>
+      <th>mjd</th>
+      <th>fiberid</th>
+    </tr>
+    <tr>
+      <th>class</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>GALAXY</th>
+      <td>1.237650e+18</td>
+      <td>177.333570</td>
+      <td>15.764372</td>
+      <td>18.804339</td>
+      <td>17.350216</td>
+      <td>16.649506</td>
+      <td>16.272770</td>
+      <td>16.017923</td>
+      <td>996.711685</td>
+      <td>301.0</td>
+      <td>3.654662</td>
+      <td>300.963585</td>
+      <td>5.379141e+17</td>
+      <td>0.080325</td>
+      <td>477.680672</td>
+      <td>52030.280912</td>
+      <td>340.108844</td>
+    </tr>
+    <tr>
+      <th>QSO</th>
+      <td>1.237650e+18</td>
+      <td>177.468000</td>
+      <td>20.570639</td>
+      <td>18.942928</td>
+      <td>18.678714</td>
+      <td>18.498535</td>
+      <td>18.360007</td>
+      <td>18.274761</td>
+      <td>1036.120000</td>
+      <td>301.0</td>
+      <td>3.694118</td>
+      <td>304.983529</td>
+      <td>1.447231e+18</td>
+      <td>1.218366</td>
+      <td>1285.305882</td>
+      <td>52694.289412</td>
+      <td>381.558824</td>
+    </tr>
+    <tr>
+      <th>STAR</th>
+      <td>1.237650e+18</td>
+      <td>172.962158</td>
+      <td>12.544824</td>
+      <td>18.330439</td>
+      <td>17.130547</td>
+      <td>16.732093</td>
+      <td>16.594047</td>
+      <td>16.531119</td>
+      <td>950.886561</td>
+      <td>301.0</td>
+      <td>3.632225</td>
+      <td>303.552264</td>
+      <td>3.018202e+18</td>
+      <td>0.000043</td>
+      <td>2680.613198</td>
+      <td>54093.892823</td>
+      <td>362.838391</td>
+    </tr>
+  </tbody>
+</table>
