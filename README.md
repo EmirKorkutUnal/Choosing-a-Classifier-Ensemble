@@ -386,5 +386,6 @@ for name, pred in y_pred:
     plot_confusion_matrix(conmat, classes=y_names, normalize=True, title='%s Normalized Confusion Matrix' % name)
     plt.subplots_adjust(wspace=0.2)
     plt.show()
-<pre>
+</pre>
 All our predictions in our y_pred list go through the confusion_matrix() function. Names of the target variables are taken from the y_test dataset. For each confusion matrix pair, the one at the left will be the standard plot and the one at the left will be the normalized plot. The plots will have a space between them that is 20% of the whole axis width.
+
