@@ -388,9 +388,17 @@ for name, pred in y_pred:
     plt.show()
 </pre>
 All our predictions in our y_pred list go through the confusion_matrix() function. Names of the target variables are taken from the y_test dataset. For each confusion matrix pair, the one at the left will be the standard plot and the one at the left will be the normalized plot. The plots will have a space between them that is 20% of the whole axis width.<br><br>
-All confusion matrices are shown below:
+All confusion matrices are shown below:<br>
 <img src="https://github.com/EmirKorkutUnal/Choosing-a-Classifier-Ensemble/blob/master/images/ABCConMat.jpg">
 <img src="https://github.com/EmirKorkutUnal/Choosing-a-Classifier-Ensemble/blob/master/images/BCConMat.jpg">
 <img src="https://github.com/EmirKorkutUnal/Choosing-a-Classifier-Ensemble/blob/master/images/ETCConMat.jpg">
 <img src="https://github.com/EmirKorkutUnal/Choosing-a-Classifier-Ensemble/blob/master/images/GBCConMat.jpg">
 <img src="https://github.com/EmirKorkutUnal/Choosing-a-Classifier-Ensemble/blob/master/images/RFCConMat.jpg">
+As you can see, confusion matrices allow us to easily notice where the models were successful and where they failed.<br><br>
+<b>AdaBoost Classifier had a big problem labeling stars</b>; it labeled 78% of all stars within the test dataset as galaxies.<br><br>
+<b>Bagging Classifier was quite successful</b>, its only notable fault was labeling 6% of quasars as galaxies.
+<b>Extra Trees Classifier performed well</b>, though had problems both in quasar and star labeling.
+<b>Gradient Boosting Classifier has the best results</b>, maximum error rate is 5%.
+<b>Random Forest Classifier accomplished good results</b>, again having difficulties labeling quasars.
+<h2>Conclusion</h2>
+
