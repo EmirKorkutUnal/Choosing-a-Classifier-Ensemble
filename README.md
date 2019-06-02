@@ -1,5 +1,5 @@
 <h1>Choosing a Classifier Ensemble</h1>
-This Python code is aimed to measure and compare Scikit-Learn Classifier Ensembles.
+This Python code is aimed to measure and compare predictive powers of Scikit-Learn Classifier Ensembles.
 <h2>Background</h2>
 <h3>General Info</h3>
 There are many useful classification methods within <a href=https://scikit-learn.org/stable/>Scikit-Learn</a>, machine learning library for Python. In this article, we'll concentrate on <a href=https://scikit-learn.org/stable/modules/classes.html#module-sklearn.ensemble>ensemble methods</a>. Ensemble models combine multiple models to create a better model and produce more accurate predictions.<br><br>
