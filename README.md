@@ -36,7 +36,7 @@ import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 import time
 </pre>
-The reason to import warnings is to suppress future warnings.<br>
+The reason to import warnings is to suppress FutureWarnings.<br>
 We're also going to use the time library to measure the KFold model running times.<br>
 <pre>
 df = pd.read_csv('C:/Users/Emir/Desktop/Skyserver.csv')
