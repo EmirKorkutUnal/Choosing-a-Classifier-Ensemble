@@ -331,7 +331,7 @@ BC : 0.988700  in 4.99 seconds
 ETC: 0.970200  in 0.54 seconds
 GBC: 0.989700  in 22.41 seconds
 RFC: 0.987900  in 1.31 seconds
-<pre>
+</pre>
 Gradient Boosting Classifier has the best score, but also took the longest time to run. Bagging Classifier is a close second with much better running time.<br><br>
 Let's use the models for predictions:
 <pre>
