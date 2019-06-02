@@ -21,7 +21,7 @@ Also, we'll employ <a href=https://scikit-learn.org/stable/modules/generated/skl
 Let's start.
 <h2>Analysis</h2>
 <h3>Preparations</h3>
-First, we need to import necessary modules.
+First, we need to import the necessary modules.
 <pre>
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -285,7 +285,7 @@ df.groupby(['class']).mean()
     </tr>
   </tbody>
 </table>
-It is already obvious that any variable that contains some sort of ID number won't help for analysis; so 'objid' and 'specobjid' will be out. Beside those two, we can also see that the variable 'rerun' is constant among variables; is doesn't provide any useful information either.<br><br>
+It is already obvious that any variable that contains some sort of ID number won't help for analysis; so 'objid' and 'specobjid' will be out. Beside those two, we can also see that the variable 'rerun' is constant among variables and doesn't provide any useful information.<br><br>
 So, we get our predictors and target like this:
 <pre>
 x = df.drop(['class','objid','rerun','specobjid'], axis=1)
@@ -305,8 +305,8 @@ models.append(('ETC', ExtraTreesClassifier()))
 models.append(('GBC', GradientBoostingClassifier()))
 models.append(('RFC', RandomForestClassifier()))
 </pre>
-We're using a list for all models. First value of each object are the initials of model names. There's one extra space character at the end of BC, that is for alignment.<br>
-This also is the part you can change if you want to make similar classification comparisons. Just append any model that you've imported into this list (remember to use that model's own initials!).
+We're creating a list to store all models. First value of each list object are the initials of model names. There's one extra space character at the end of BC, that is for alignment.<br>
+This also is the part you can change if you want to make similar classification comparisons. Just append any model that you've imported into this list (remember to use that model's own initials!). You can also change the default parameters by stating them within the brackets.
 <pre>
 kfold = model_selection.KFold(n_splits=10, random_state=7)
 scoring = 'accuracy'
@@ -321,8 +321,8 @@ for name, model in models:
     cv_results = model_selection.cross_val_score(model, x, y.values.ravel(), cv=kfold, scoring=scoring)
     print('%s: %f  in %.2f seconds' % (name, cv_results.mean(), time.time() - start_time))
 </pre>
-This part of the code will print the name, accuracy and time to complete the KFold validation for each model.<br>
-The start_time will fetch the exact time then the for loop starts the next loop. When it's time to print the result, that time will be subtracted from the current time, and '%.2f' of the code will print it as a float with 2 decimal places.
+This part of the code will print the name, accuracy and time needed to complete the KFold validation for each model.<br>
+The start_time will fetch the exact time when the for loop starts a new loop. When it's time to print the result, that time will be subtracted from the current time, and '%.2f' part of the code will print it as a float with 2 decimal places.
 <br><br>
 Here are the results:
 <pre>
@@ -342,7 +342,7 @@ for name, model in models:
     y_pred.append([name, PredictionResults])
     print('%s fitted and used for predictions.' % name)
 </pre>
-We have a list called y_pred, and it will save all the prediction information for each model. Notice that the name of the model is also recorded into the list because we will need it during the cretion of confusion matrices.<br><br>
+We have a list called y_pred, and it will save all the prediction information for each model. Notice that the name of the model is also recorded into the list because we will need it during the creation of confusion matrices.<br><br>
 The data is fitted into all models, prediction results are individually saved into the 'PredictionResults' and then appended to y_pred for future use. <b>Because this is a loop, anything you want to use later must be recorded into a variable that is out of the loop!</b><br><br>
 The print command is here to show that the code ran succesfully. 
 <pre>
@@ -387,7 +387,7 @@ for name, pred in y_pred:
     plt.subplots_adjust(wspace=0.2)
     plt.show()
 </pre>
-All our predictions in our y_pred list go through the confusion_matrix() function. Names of the target variables are taken from the y_test dataset. For each confusion matrix pair, the one at the left will be the standard plot and the one at the left will be the normalized plot. The plots will have a space between them that is 20% of the whole axis width.<br><br>
+All our predictions in our y_pred list go through the confusion_matrix() function and saved as 'conmat' within the loop. Names of the target variables are taken from the y_test dataset. We create a new figure with 12 to 5 inches in size. Then the plot_confusion_matrix() custom function takes over: It is run twice for each figure and creates two confusion matrix subplots. The ones at the left are the standard plots, the ones at the right are the normalized plots. The plots will have a space between them that is 20% of the whole axis width.<br><br>
 All confusion matrices are shown below:<br><br>
 <img src="https://github.com/EmirKorkutUnal/Choosing-a-Classifier-Ensemble/blob/master/images/ABCConMat.jpg">
 <img src="https://github.com/EmirKorkutUnal/Choosing-a-Classifier-Ensemble/blob/master/images/BCConMat.jpg">
@@ -402,10 +402,10 @@ As you can see, confusion matrices allow us to easily notice where the models we
 <b>Random Forest Classifier accomplished good results</b>, again having difficulties labeling quasars.
 Note that each time the same code is run, <b>you might have slightly different results</b>.
 <h3>Futrher Interpretation for this Analysis</h3>
-If your only choice of classifying these objects would be one of these 5 models, you would have to go with the Gradient Boosting Classifier despite the 5% partial error rate - which is not that high and also consider that the part where the error is made is relatively small. In real world, this might not be the case, so you might go one of the following directions:
+If your only choice of classifying these objects would be one of these 5 models with their default parameters, you would have to go with the Gradient Boosting Classifier despite the 5% partial error rate - which is not that high and also consider that the class where this error rate pccurs is smaller than the other classes. In real world, you probably wouldn't have such model selection limitations, so you might choose one of the following directions to follow:
 <ul>
   <li><b>Play around with default parameters of each ensemble model</b> until you get a better result. Keep in mind that the both <b>AdaBoost and Bagging Classifiers have a base_estimator parameter</b> where you can change the standard decision tree estimator into something else, like Logistic Regression.</li> 
-  <li>All 5 models had some level of problem when it came to labeling quasars; this indicated that the dataset itself may not contain sufficient information to classify all objects correctly. <b>You may want to search for other related variables</b> to increase model accuracy.</li>
+  <li>All 5 models had some level of problem when it came to labeling quasars; this indicates that the dataset itself may not contain sufficient information to classify all objects correctly. <b>You may want to search for other related variables</b> to increase model accuracy.</li>
   <li><b>Look for alternative models</b>, such as Artifical Neural Network Classifier, and measure their accuracies on the dataset.</li>
 </ul> 
 <h2>Conclusion</h2>
