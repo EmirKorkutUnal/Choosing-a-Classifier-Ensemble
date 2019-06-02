@@ -404,8 +404,8 @@ As you can see, confusion matrices allow us to easily notice where the models we
 If your only choice of classifying these objects would be one of these 5 models, you would have to go with the Gradient Boosting Classifier despite the 5% partial error rate - which is not that high and also consider that the part where the error is made is relatively small. In real world, this might not be the case, so you might go one of the following directions:
 <ul>
   <li><b>Play around with default parameters of each ensemble model</b> until you get a better result. Keep in mind that the both <b>AdaBoost and Bagging Classifiers have a base_estimator parameter</b> where you can change the standard decision tree estimator into something else, like Logistic Regression.</li> 
-  <li>Look at alternative models, such as Artifical Neural Network Classifier, and measure their accuracies on the dataset.</li>
-  <li>All 5 models had some level of problem when it came to labeling quasars; this indicated that the dataset itself may not contain sufficient information to classify all objects correctly. You may want to search for other related variables to increase model accuracy.</li>
+  <li>All 5 models had some level of problem when it came to labeling quasars; this indicated that the dataset itself may not contain sufficient information to classify all objects correctly. <b>You may want to search for other related variables</b> to increase model accuracy.</li>
+  <li><b>Look for alternative models</b>, such as Artifical Neural Network Classifier, and measure their accuracies on the dataset.</li>
 </ul>
 <h2>Conclusion</h2>
 Although AdaBoost Classifier didn't perform as well in this example, <b>you can use all of these ensembles for your classification analyzes. They are powerful methods and can increase the accuracy of any existing simple method.<b> 
