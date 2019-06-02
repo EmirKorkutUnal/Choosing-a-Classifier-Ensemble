@@ -286,7 +286,7 @@ df.groupby(['class']).mean()
   </tbody>
 </table>
 It is already obvious that any variable that contains some sort of ID number won't help for analysis; so 'objid' and 'specobjid' will be out. Beside those two, we can also see that the variable 'rerun' is constant among variables; is doesn't provide any useful information either.<br><br>
-So, our predictors and target look like this:
+So, we get our predictors and target like this:
 <pre>
 x = df.drop(['class','objid','rerun','specobjid'], axis=1)
 y = df.filter(['class'])
@@ -403,8 +403,8 @@ As you can see, confusion matrices allow us to easily notice where the models we
 <h3>Futrher Interpretation for this Analysis</h3>
 If your only choice of classifying these objects woul be one of these 5 models, you would have to go with the Gradient Boosting Classifier despite the 5% partial error rate. In real world, this might not be the case, so you might go one of the following directions:
 <ul>
-  <li>Look at alternative models, such as Artifical Neural Network Classifier, and measure their accuracies on the dataset.
-  <li>All 5 models had some level of problem when it came to labeling quasars; this indicated that the dataset itself may not contain sufficient information to classify all objects correctly. You may want to search for other variables related to these objects to increase model accuracy.</li>
+  <li>Look at alternative models, such as Artifical Neural Network Classifier, and measure their accuracies on the dataset.</li>
+  <li>All 5 models had some level of problem when it came to labeling quasars; this indicated that the dataset itself may not contain sufficient information to classify all objects correctly. You may want to search for other related variables to increase model accuracy.</li>
 </ul>
 <h2>Conclusion</h2>
 
