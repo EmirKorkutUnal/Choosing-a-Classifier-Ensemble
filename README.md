@@ -408,4 +408,7 @@ If your only choice of classifying these objects would be one of these 5 models,
   <li><b>Look for alternative models</b>, such as Artifical Neural Network Classifier, and measure their accuracies on the dataset.</li>
 </ul>
 <h2>Conclusion</h2>
-Although AdaBoost Classifier didn't perform as well in this example, <b>you can use all of these ensembles for your classification analyzes. They are powerful methods and can increase the accuracy of any existing simple method.<b> 
+Although AdaBoost Classifier didn't perform as well in this example, <b>you can use all of these ensembles for your classification analyzes. They are powerful methods and can increase the accuracy of any existing simple method.<b> Running times vary depending on model, so if the computational power would be an issue - especially for a large dataset - then <b>you may choose a model that runs faster in exchange of some accuracy</b>.<br><br>
+Have a nice day,<br>
+Emir Korkut Ünal
+
