@@ -398,7 +398,13 @@ As you can see, confusion matrices allow us to easily notice where the models we
 <b>AdaBoost Classifier had a big problem labeling stars</b>; it labeled 78% of all stars within the test dataset as galaxies.<br>
 <b>Bagging Classifier was quite successful</b>, its only notable fault was labeling 6% of quasars as galaxies.<br>
 <b>Extra Trees Classifier performed well</b>, though had problems both in quasar and star labeling.<br>
-<b>Gradient Boosting Classifier has the best results</b>, maximum error rate is 5%.<br>
+<b>Gradient Boosting Classifier has the best results</b>, maximum partial error rate is 5%.<br>
 <b>Random Forest Classifier accomplished good results</b>, again having difficulties labeling quasars.
+<h3>Futrher Interpretation for this Analysis</h3>
+If your only choice of classifying these objects woul be one of these 5 models, you would have to go with the Gradient Boosting Classifier despite the 5% partial error rate. In real world, this might not be the case, so you might go one of the following directions:
+<ul>
+  <li>Look at alternative models, such as Artifical Neural Network Classifier, and measure their accuracies on the dataset.
+  <li>All 5 models had some level of problem when it came to labeling quasars; this indicated that the dataset itself may not contain sufficient information to classify all objects correctly. You may want to search for other variables related to these objects to increase model accuracy.</li>
+</ul>
 <h2>Conclusion</h2>
 
