@@ -19,7 +19,7 @@ In this article, we'll use Python to compare
 classifiers. Also, we'll employ <a href=https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.KFold.html>KFold</a> to get average model scores, use the classifiers to make predictions and then create <a href=https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html>confusion matrices</a> to visualize prediction results.<br><br>
 Let's start.
 <h2>Analysis</h2>
-<h3>Preparations</3>
+<h3>Preparations</h3>
 First, we need to import necessary modules.
 <pre>
 import pandas as pd
