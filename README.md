@@ -400,13 +400,14 @@ As you can see, confusion matrices allow us to easily notice where the models we
 <b>Extra Trees Classifier performed well</b>, though had problems both in quasar and star labeling.<br>
 <b>Gradient Boosting Classifier has the best results</b>, maximum partial error rate is 5%.<br>
 <b>Random Forest Classifier accomplished good results</b>, again having difficulties labeling quasars.
+Note that each time the same code is run, <b>you might have slightly different results</b>.
 <h3>Futrher Interpretation for this Analysis</h3>
 If your only choice of classifying these objects would be one of these 5 models, you would have to go with the Gradient Boosting Classifier despite the 5% partial error rate - which is not that high and also consider that the part where the error is made is relatively small. In real world, this might not be the case, so you might go one of the following directions:
 <ul>
   <li><b>Play around with default parameters of each ensemble model</b> until you get a better result. Keep in mind that the both <b>AdaBoost and Bagging Classifiers have a base_estimator parameter</b> where you can change the standard decision tree estimator into something else, like Logistic Regression.</li> 
   <li>All 5 models had some level of problem when it came to labeling quasars; this indicated that the dataset itself may not contain sufficient information to classify all objects correctly. <b>You may want to search for other related variables</b> to increase model accuracy.</li>
   <li><b>Look for alternative models</b>, such as Artifical Neural Network Classifier, and measure their accuracies on the dataset.</li>
-</ul>
+</ul> 
 <h2>Conclusion</h2>
 Although AdaBoost Classifier didn't perform as well in this example, <b>you can use all of these ensembles for your classification analyzes. They are powerful methods and can increase the accuracy of any existing simple method.</b> Running times vary depending on model, so if the computational power would be an issue - especially for a large dataset - then <b>you may choose a model that runs faster in exchange of some accuracy</b>.<br><br>
 Have a nice day,<br>
