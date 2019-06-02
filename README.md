@@ -395,10 +395,10 @@ All confusion matrices are shown below:<br>
 <img src="https://github.com/EmirKorkutUnal/Choosing-a-Classifier-Ensemble/blob/master/images/GBCConMat.jpg">
 <img src="https://github.com/EmirKorkutUnal/Choosing-a-Classifier-Ensemble/blob/master/images/RFCConMat.jpg">
 As you can see, confusion matrices allow us to easily notice where the models were successful and where they failed.<br><br>
-<b>AdaBoost Classifier had a big problem labeling stars</b>; it labeled 78% of all stars within the test dataset as galaxies.<br><br>
-<b>Bagging Classifier was quite successful</b>, its only notable fault was labeling 6% of quasars as galaxies.
-<b>Extra Trees Classifier performed well</b>, though had problems both in quasar and star labeling.
-<b>Gradient Boosting Classifier has the best results</b>, maximum error rate is 5%.
+<b>AdaBoost Classifier had a big problem labeling stars</b>; it labeled 78% of all stars within the test dataset as galaxies.<br>
+<b>Bagging Classifier was quite successful</b>, its only notable fault was labeling 6% of quasars as galaxies.<br>
+<b>Extra Trees Classifier performed well</b>, though had problems both in quasar and star labeling.<br>
+<b>Gradient Boosting Classifier has the best results</b>, maximum error rate is 5%.<br>
 <b>Random Forest Classifier accomplished good results</b>, again having difficulties labeling quasars.
 <h2>Conclusion</h2>
 
