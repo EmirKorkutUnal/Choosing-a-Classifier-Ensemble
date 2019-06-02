@@ -16,7 +16,8 @@ In this article, we'll use Python to compare
   <li>Gradient Boosting</li>
   <li>Random Forest</li>
  </ul>
-classifiers. Also, we'll employ <a href=https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.KFold.html>KFold</a> to get average model scores, use the classifiers to make predictions and then create <a href=https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html>confusion matrices</a> to visualize prediction results.<br><br>
+classifiers. All classifiers will be used with their base settings.<br><br>
+Also, we'll employ <a href=https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.KFold.html>KFold</a> to get average model scores, use the classifiers to make predictions and then create <a href=https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html>confusion matrices</a> to visualize prediction results.<br><br>
 Let's start.
 <h2>Analysis</h2>
 <h3>Preparations</h3>
@@ -312,4 +313,42 @@ scoring = 'accuracy'
 </pre>
 KFold will split the training data into 10 pieces, and use each one as validation while the other 9 pieces serve as training data.<br>
 Models will be scored according to their accuracy.
-<h3>Analysis</h3>
+<h3>Models Runs and Scores</h3>
+It's time to see what the models can produce.
+<pre>
+for name, model in models:
+    start_time = time.time()
+    cv_results = model_selection.cross_val_score(model, x, y.values.ravel(), cv=kfold, scoring=scoring)
+    print('%s: %f  in %.2f seconds' % (name, cv_results.mean(), time.time() - start_time))
+</pre>
+This part of the code will print the name, accuracy and time to complete the KFold validation for each model.<br>
+The start_time will fetch the exact time then the for loop starts the next loop. When it's time to print the result, that time will be subtracted from the current time, and '%.2f' of the code will print it as a float with 2 decimal places.
+<br><br>
+Here are the results:
+<pre>
+ABC: 0.843600  in 8.53 seconds
+BC : 0.988700  in 4.99 seconds
+ETC: 0.970200  in 0.54 seconds
+GBC: 0.989700  in 22.41 seconds
+RFC: 0.987900  in 1.31 seconds
+<pre>
+Gradient Boosting Classifier has the best score, but also took the longest time to run. Bagging Classifier is a close second with much better running time.<br><br>
+Let's use the models for predictions:
+<pre>
+y_pred = []
+for name, model in models:
+    model.fit(x_train,y_train.values.ravel())
+    PredictionResults = model.predict(x_test)
+    y_pred.append([name, PredictionResults])
+    print('%s fitted and used for predictions.' % name)
+</pre>
+We have a list called y_pred, and it will save all the prediction information for each model. Notice that the name of the model is also recorded into the list because we will need it during the cretion of confusion matrices.<br><br>
+The data is fitted into all models, prediction results are individually saved into the 'PredictionResults' and then appended to y_pred for future use. <b>Because this is a loop, anything you want to use later must be recorded into a variable that is out of the loop!</b><br><br>
+The print command here indicates that the code succesfully ran. 
+<pre>
+ABC fitted and used for predictions.
+BC  fitted and used for predictions.
+ETC fitted and used for predictions.
+GBC fitted and used for predictions.
+RFC fitted and used for predictions.
+</pre>
