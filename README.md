@@ -178,7 +178,7 @@ Now that the data is properly loaded, let's take a deper look into each object c
 <pre>
 df.groupby(['class']).mean()
 </pre>
-<table bgcolor="lightblue">
+<table>
   <thead>
     <tr style="text-align: right;">
       <th></th>
@@ -284,3 +284,32 @@ df.groupby(['class']).mean()
     </tr>
   </tbody>
 </table>
+It is already obvious that any variable that contains some sort of ID number won't help for analysis; so 'objid' and 'specobjid' will be out. Beside those two, we can also see that the variable 'rerun' is constant among variables; is doesn't provide any useful information either.<br><br>
+So, our predictors and target look like this:
+<pre>
+x = df.drop(['class','objid','rerun','specobjid'], axis=1)
+y = df.filter(['class'])
+</pre>
+Next, we need to split the dataset to train the models and test them on the splits.
+<pre>
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.8, random_state=0)
+</pre>
+<h3>Method Declaration</h3>
+Now it's time to specify the models to be compared and the methods of comparison.
+<pre>
+models = []
+models.append(('ABC', AdaBoostClassifier()))
+models.append(('BC ', BaggingClassifier()))
+models.append(('ETC', ExtraTreesClassifier()))
+models.append(('GBC', GradientBoostingClassifier()))
+models.append(('RFC', RandomForestClassifier()))
+</pre>
+We're using a list for all models. First value of each object are the initials of model names. There's one extra space character at the end of BC, that is for alignment.<br>
+This also is the part you can change if you want to make similar classification comparisons. Just append any model that you've imported into this list (remember to use that model's own initials!).
+<pre>
+kfold = model_selection.KFold(n_splits=10, random_state=7)
+scoring = 'accuracy'
+</pre>
+KFold will split the training data into 10 pieces, and use each one as validation while the other 9 pieces serve as training data.<br>
+Models will be scored according to their accuracy.
+<h3>Analysis</h3>
