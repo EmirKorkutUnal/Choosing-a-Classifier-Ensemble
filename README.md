@@ -8,7 +8,7 @@ The aim of this code is to make things <b>easy to decide which ensemble model sh
 <h3>Dataset</h3>
 The dataset used here is found on <a href=https://www.kaggle.com/>Kaggle</a> and the information was provided by <a href=https://www.sdss.org/>Sloan Digital Sky Survey</a>. Various measurements about sky objects are presented, and you're asked for classifying the objects as galaxies, quasars or stars. More information about the dataset and each variable can be found <a href=https://www.kaggle.com/lucidlenn/sloan-digital-sky-survey>here</a>. You can download the dataset directly from <a href=https://www.kaggle.com/lucidlenn/sloan-digital-sky-survey/downloads/sloan-digital-sky-survey.zip/2>this link</a>.
 <h3>Methodology</h3>
-In this article, we'll use Python to compare<br>
+In this article, we'll use Python to compare<br><br>
 <ul>
   <li>AdaBoost</li>
   <li>Bagging</li>
