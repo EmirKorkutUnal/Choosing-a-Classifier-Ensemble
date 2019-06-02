@@ -387,5 +387,10 @@ for name, pred in y_pred:
     plt.subplots_adjust(wspace=0.2)
     plt.show()
 </pre>
-All our predictions in our y_pred list go through the confusion_matrix() function. Names of the target variables are taken from the y_test dataset. For each confusion matrix pair, the one at the left will be the standard plot and the one at the left will be the normalized plot. The plots will have a space between them that is 20% of the whole axis width.
-
+All our predictions in our y_pred list go through the confusion_matrix() function. Names of the target variables are taken from the y_test dataset. For each confusion matrix pair, the one at the left will be the standard plot and the one at the left will be the normalized plot. The plots will have a space between them that is 20% of the whole axis width.<br><br>
+All confusion matrices are shown below:
+<img src="https://github.com/EmirKorkutUnal/Choosing-a-Classifier-Ensemble/blob/master/images/ABCConMat.jpg">
+<img src="https://github.com/EmirKorkutUnal/Choosing-a-Classifier-Ensemble/blob/master/images/BCConMat.jpg">
+<img src="https://github.com/EmirKorkutUnal/Choosing-a-Classifier-Ensemble/blob/master/images/ETCConMat.jpg">
+<img src="https://github.com/EmirKorkutUnal/Choosing-a-Classifier-Ensemble/blob/master/images/GBCConMat.jpg">
+<img src="https://github.com/EmirKorkutUnal/Choosing-a-Classifier-Ensemble/blob/master/images/RFCConMat.jpg">
